@@ -531,18 +531,15 @@ For additional best practices and detailed information please refer to the follo
 - [RFC8252 - OAuth 2.0 for Native Apps (October 2017)](https://tools.ietf.org/html/rfc8252)
 - [RFC6819 - OAuth 2.0 Threat Model and Security Considerations (January 2013)](https://tools.ietf.org/html/rfc6819)
 
-## Testing Passkeys Flow 
+## Testing Authentication using Passkeys
 
-Passkeys is an alternative to passwords, which is resistant to credential phishing, credential stuffing, and similar account takeover attacks. Passkey not only replaces passwords, but also eliminates need for traditional 2nd factor authentication methods such as text message, app based one-time codes or push-based approvals. Under the hood, passkeys uses well established industry standards created by FIDO alliance and the W3C Web Authentication working group. 
+[Passkeys](https://fidoalliance.org/passkeys/ "passkeys") are a secure alternative to passwords, based on well established industry standards created by FIDO alliance and W3C Web Authentication working group. Passkeys, unlike passwords, are resistant to credential phishing, credential stuffing, and similar account takeover attacks. Passkeys not only replaces passwords, but also eliminates need for traditional 2nd factor authentication methods such as text message, app based one-time codes or push-based approvals.
 
-A passkey comprises of a cryptographic public-private key pair. The private key is present only on the user's devices, while the corresponding public key is stored by the online service. During login, the service uses the public key to verify a signature from the private key. Since a key pair is unique to each service provider, in case of a data breach of service providers don't result in a compromise of passkey protected accounts. Additionally, to use a passkey, the user is required to unlock their device or credential store, preventing sign-ins from a stolen phone, or evil maid attacks. 
+A passkey comprises of a cryptographic public-private key pair. The private key is present only on the user's devices, while the corresponding public key is stored with the service provider. During login, the service provider uses the public key to verify a signature from the private key. Since a key pair is unique to each service provider, in case of a data breach of service providers don't result in a compromise of passkey protected accounts. Additionally, to use a passkey, the user is required to unlock their device or credential store, preventing sign-ins from a stolen phone, or evil maid attacks. 
 
-Passkeys will be supported by various popular platforms, including [Android](https://android-developers.googleblog.com/2022/10/bringing-passkeys-to-android-and-chrome.html "Passkeys available on Android & Chrome"), [iOS](https://developer.apple.com/passkeys/ "iOS Passkeys") and [Windows](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/expansion-of-fido-standard-and-new-updates-for-microsoft/ba-p/3290633 "Passkeys Windows"). The underlying platforms can synchronize the keys across various user owned devices, i.e a private key can exist on multiple user devices; addressing a common problem of device loss. 
+Passkeys is supported by various popular platforms, including [Android](https://android-developers.googleblog.com/2022/10/bringing-passkeys-to-android-and-chrome.html "Passkeys available on Android & Chrome"), [iOS](https://developer.apple.com/passkeys/ "iOS Passkeys") and [Windows](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/expansion-of-fido-standard-and-new-updates-for-microsoft/ba-p/3290633 "Passkeys Windows"). The underlying platforms can synchronize the keys across various user owned devices, i.e a private key can exist on multiple user devices; addressing a common problem of device loss. 
 
 In case of a user using a new device, which doesn't sync with the user's other existing devices, the passkey implementation allows using the existing device to authenticate. User can use an existing device with credentials to authenticate to a service provider, with credentials being transferred over a Bluetooth connection between the two devices. Use of Bluetooth establishes that the two devices are in a close geographical proximity, eliminating many possible remote attacks.
-
-
-
 
 ## Testing Login Activity and Device Blocking (MSTG-AUTH-11)
 
